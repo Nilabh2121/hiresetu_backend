@@ -26,10 +26,5 @@ app.get('/', (req, res) => {
     res.send('HireSetu Backend Running');
 });
 
-const PORT = 5003;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
-
 
 module.exports = app;
