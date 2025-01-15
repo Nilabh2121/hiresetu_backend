@@ -1,0 +1,33 @@
+const express = require('express');
+const connectDB = require('./config/db');
+const cors = require('cors');
+
+const adminRoutes = require('./routes/admin');
+const jobRoutes = require('./routes/job');
+const announcementRoutes = require('./routes/announcements');
+
+const app = express();
+
+// Connect to database
+connectDB();
+
+// Middleware
+app.use(express.json());
+app.use(cors());
+
+// Routes
+app.use('/api/admin', adminRoutes);
+app.use('/api/job', jobRoutes);
+app.use('/api/announcements', announcementRoutes);
+
+app.get('/', (req, res) => {
+    res.send('HireSetu Backend Running');
+});
+
+const PORT = 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+
+
+module.exports = app;
