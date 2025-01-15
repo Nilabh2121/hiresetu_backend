@@ -1,6 +1,8 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const cors = require('cors');
+require('dotenv').config();
+
 
 const adminRoutes = require('./routes/admin');
 const jobRoutes = require('./routes/job');
@@ -24,7 +26,7 @@ app.get('/', (req, res) => {
     res.send('HireSetu Backend Running');
 });
 
-const PORT = 5000;
+const PORT = 5003;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
